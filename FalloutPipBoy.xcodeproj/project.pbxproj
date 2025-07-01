@@ -1,0 +1,701 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5BEE70E62E13DBC10020104F /* FalloutPipBoy Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 5BEE70E52E13DBC10020104F /* FalloutPipBoy Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5BEE70E72E13DBC10020104F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5BEE70D92E13DBC10020104F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5BEE70E42E13DBC10020104F;
+			remoteInfo = "FalloutPipBoy Watch App";
+		};
+		5BEE70F52E13DBC30020104F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5BEE70D92E13DBC10020104F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5BEE70E42E13DBC10020104F;
+			remoteInfo = "FalloutPipBoy Watch App";
+		};
+		5BEE70FF2E13DBC30020104F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5BEE70D92E13DBC10020104F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5BEE70E42E13DBC10020104F;
+			remoteInfo = "FalloutPipBoy Watch App";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		5BEE710B2E13DBC30020104F /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				5BEE70E62E13DBC10020104F /* FalloutPipBoy Watch App.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		5BEE70DF2E13DBC10020104F /* FalloutPipBoy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FalloutPipBoy.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5BEE70E52E13DBC10020104F /* FalloutPipBoy Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FalloutPipBoy Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5BEE70F42E13DBC30020104F /* FalloutPipBoy Watch AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "FalloutPipBoy Watch AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5BEE70FE2E13DBC30020104F /* FalloutPipBoy Watch AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "FalloutPipBoy Watch AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		5BEE70E92E13DBC10020104F /* FalloutPipBoy Watch App */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "FalloutPipBoy Watch App";
+			sourceTree = "<group>";
+		};
+		5BEE70F72E13DBC30020104F /* FalloutPipBoy Watch AppTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "FalloutPipBoy Watch AppTests";
+			sourceTree = "<group>";
+		};
+		5BEE71012E13DBC30020104F /* FalloutPipBoy Watch AppUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "FalloutPipBoy Watch AppUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5BEE70E22E13DBC10020104F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5BEE70F12E13DBC30020104F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5BEE70FB2E13DBC30020104F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5BEE70D82E13DBC10020104F = {
+			isa = PBXGroup;
+			children = (
+				5BEE70E92E13DBC10020104F /* FalloutPipBoy Watch App */,
+				5BEE70F72E13DBC30020104F /* FalloutPipBoy Watch AppTests */,
+				5BEE71012E13DBC30020104F /* FalloutPipBoy Watch AppUITests */,
+				5BEE70E02E13DBC10020104F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		5BEE70E02E13DBC10020104F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5BEE70DF2E13DBC10020104F /* FalloutPipBoy.app */,
+				5BEE70E52E13DBC10020104F /* FalloutPipBoy Watch App.app */,
+				5BEE70F42E13DBC30020104F /* FalloutPipBoy Watch AppTests.xctest */,
+				5BEE70FE2E13DBC30020104F /* FalloutPipBoy Watch AppUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5BEE70DE2E13DBC10020104F /* FalloutPipBoy */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5BEE710C2E13DBC30020104F /* Build configuration list for PBXNativeTarget "FalloutPipBoy" */;
+			buildPhases = (
+				5BEE70DD2E13DBC10020104F /* Resources */,
+				5BEE710B2E13DBC30020104F /* Embed Watch Content */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5BEE70E82E13DBC10020104F /* PBXTargetDependency */,
+			);
+			name = FalloutPipBoy;
+			packageProductDependencies = (
+			);
+			productName = FalloutPipBoy;
+			productReference = 5BEE70DF2E13DBC10020104F /* FalloutPipBoy.app */;
+			productType = "com.apple.product-type.application.watchapp2-container";
+		};
+		5BEE70E42E13DBC10020104F /* FalloutPipBoy Watch App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5BEE71082E13DBC30020104F /* Build configuration list for PBXNativeTarget "FalloutPipBoy Watch App" */;
+			buildPhases = (
+				5BEE70E12E13DBC10020104F /* Sources */,
+				5BEE70E22E13DBC10020104F /* Frameworks */,
+				5BEE70E32E13DBC10020104F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				5BEE70E92E13DBC10020104F /* FalloutPipBoy Watch App */,
+			);
+			name = "FalloutPipBoy Watch App";
+			packageProductDependencies = (
+			);
+			productName = "FalloutPipBoy Watch App";
+			productReference = 5BEE70E52E13DBC10020104F /* FalloutPipBoy Watch App.app */;
+			productType = "com.apple.product-type.application";
+		};
+		5BEE70F32E13DBC30020104F /* FalloutPipBoy Watch AppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5BEE710F2E13DBC30020104F /* Build configuration list for PBXNativeTarget "FalloutPipBoy Watch AppTests" */;
+			buildPhases = (
+				5BEE70F02E13DBC30020104F /* Sources */,
+				5BEE70F12E13DBC30020104F /* Frameworks */,
+				5BEE70F22E13DBC30020104F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5BEE70F62E13DBC30020104F /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				5BEE70F72E13DBC30020104F /* FalloutPipBoy Watch AppTests */,
+			);
+			name = "FalloutPipBoy Watch AppTests";
+			packageProductDependencies = (
+			);
+			productName = "FalloutPipBoy Watch AppTests";
+			productReference = 5BEE70F42E13DBC30020104F /* FalloutPipBoy Watch AppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		5BEE70FD2E13DBC30020104F /* FalloutPipBoy Watch AppUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5BEE71122E13DBC30020104F /* Build configuration list for PBXNativeTarget "FalloutPipBoy Watch AppUITests" */;
+			buildPhases = (
+				5BEE70FA2E13DBC30020104F /* Sources */,
+				5BEE70FB2E13DBC30020104F /* Frameworks */,
+				5BEE70FC2E13DBC30020104F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5BEE71002E13DBC30020104F /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				5BEE71012E13DBC30020104F /* FalloutPipBoy Watch AppUITests */,
+			);
+			name = "FalloutPipBoy Watch AppUITests";
+			packageProductDependencies = (
+			);
+			productName = "FalloutPipBoy Watch AppUITests";
+			productReference = 5BEE70FE2E13DBC30020104F /* FalloutPipBoy Watch AppUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5BEE70D92E13DBC10020104F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 2600;
+				LastUpgradeCheck = 2600;
+				TargetAttributes = {
+					5BEE70DE2E13DBC10020104F = {
+						CreatedOnToolsVersion = 26.0;
+					};
+					5BEE70E42E13DBC10020104F = {
+						CreatedOnToolsVersion = 26.0;
+					};
+					5BEE70F32E13DBC30020104F = {
+						CreatedOnToolsVersion = 26.0;
+						TestTargetID = 5BEE70E42E13DBC10020104F;
+					};
+					5BEE70FD2E13DBC30020104F = {
+						CreatedOnToolsVersion = 26.0;
+						TestTargetID = 5BEE70E42E13DBC10020104F;
+					};
+				};
+			};
+			buildConfigurationList = 5BEE70DC2E13DBC10020104F /* Build configuration list for PBXProject "FalloutPipBoy" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 5BEE70D82E13DBC10020104F;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 5BEE70E02E13DBC10020104F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5BEE70DE2E13DBC10020104F /* FalloutPipBoy */,
+				5BEE70E42E13DBC10020104F /* FalloutPipBoy Watch App */,
+				5BEE70F32E13DBC30020104F /* FalloutPipBoy Watch AppTests */,
+				5BEE70FD2E13DBC30020104F /* FalloutPipBoy Watch AppUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5BEE70DD2E13DBC10020104F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5BEE70E32E13DBC10020104F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5BEE70F22E13DBC30020104F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5BEE70FC2E13DBC30020104F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5BEE70E12E13DBC10020104F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5BEE70F02E13DBC30020104F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5BEE70FA2E13DBC30020104F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5BEE70E82E13DBC10020104F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5BEE70E42E13DBC10020104F /* FalloutPipBoy Watch App */;
+			targetProxy = 5BEE70E72E13DBC10020104F /* PBXContainerItemProxy */;
+		};
+		5BEE70F62E13DBC30020104F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5BEE70E42E13DBC10020104F /* FalloutPipBoy Watch App */;
+			targetProxy = 5BEE70F52E13DBC30020104F /* PBXContainerItemProxy */;
+		};
+		5BEE71002E13DBC30020104F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5BEE70E42E13DBC10020104F /* FalloutPipBoy Watch App */;
+			targetProxy = 5BEE70FF2E13DBC30020104F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		5BEE71062E13DBC30020104F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 34Z5QG59S2;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		5BEE71072E13DBC30020104F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 34Z5QG59S2;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		5BEE71092E13DBC30020104F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "FalloutPipBoy Watch App/FalloutPipBoy Watch App.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 34Z5QG59S2;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "FalloutPipBoy-Watch-App-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = FalloutPipBoy;
+				INFOPLIST_KEY_NSHealthClinicalHealthRecordsShareUsageDescription = "This app needs access to your heart rate data to show your recent heart rate in the PipBoy interface";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "This app needs access to your heart rate data to show your recent heart rate in the PipBoy interface";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = bpm;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKWatchOnly = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = amongus.com.FalloutPipBoy.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 11.6;
+			};
+			name = Debug;
+		};
+		5BEE710A2E13DBC30020104F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "FalloutPipBoy Watch App/FalloutPipBoy Watch App.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 34Z5QG59S2;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "FalloutPipBoy-Watch-App-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = FalloutPipBoy;
+				INFOPLIST_KEY_NSHealthClinicalHealthRecordsShareUsageDescription = "This app needs access to your heart rate data to show your recent heart rate in the PipBoy interface";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "This app needs access to your heart rate data to show your recent heart rate in the PipBoy interface";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = bpm;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKWatchOnly = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = amongus.com.FalloutPipBoy.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 11.6;
+			};
+			name = Release;
+		};
+		5BEE710D2E13DBC30020104F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 34Z5QG59S2;
+				INFOPLIST_KEY_CFBundleDisplayName = FalloutPipBoy;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.6;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = amongus.com.FalloutPipBoy;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		5BEE710E2E13DBC30020104F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 34Z5QG59S2;
+				INFOPLIST_KEY_CFBundleDisplayName = FalloutPipBoy;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.6;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = amongus.com.FalloutPipBoy;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5BEE71102E13DBC30020104F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 34Z5QG59S2;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "amongus.com.FalloutPipBoy-Watch-AppTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FalloutPipBoy Watch App.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/FalloutPipBoy Watch App";
+				WATCHOS_DEPLOYMENT_TARGET = 11.6;
+			};
+			name = Debug;
+		};
+		5BEE71112E13DBC30020104F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 34Z5QG59S2;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "amongus.com.FalloutPipBoy-Watch-AppTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FalloutPipBoy Watch App.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/FalloutPipBoy Watch App";
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 11.6;
+			};
+			name = Release;
+		};
+		5BEE71132E13DBC30020104F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 34Z5QG59S2;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "amongus.com.FalloutPipBoy-Watch-AppUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_TARGET_NAME = "FalloutPipBoy Watch App";
+				WATCHOS_DEPLOYMENT_TARGET = 11.6;
+			};
+			name = Debug;
+		};
+		5BEE71142E13DBC30020104F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 34Z5QG59S2;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "amongus.com.FalloutPipBoy-Watch-AppUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_TARGET_NAME = "FalloutPipBoy Watch App";
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 11.6;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5BEE70DC2E13DBC10020104F /* Build configuration list for PBXProject "FalloutPipBoy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5BEE71062E13DBC30020104F /* Debug */,
+				5BEE71072E13DBC30020104F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5BEE71082E13DBC30020104F /* Build configuration list for PBXNativeTarget "FalloutPipBoy Watch App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5BEE71092E13DBC30020104F /* Debug */,
+				5BEE710A2E13DBC30020104F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5BEE710C2E13DBC30020104F /* Build configuration list for PBXNativeTarget "FalloutPipBoy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5BEE710D2E13DBC30020104F /* Debug */,
+				5BEE710E2E13DBC30020104F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5BEE710F2E13DBC30020104F /* Build configuration list for PBXNativeTarget "FalloutPipBoy Watch AppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5BEE71102E13DBC30020104F /* Debug */,
+				5BEE71112E13DBC30020104F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5BEE71122E13DBC30020104F /* Build configuration list for PBXNativeTarget "FalloutPipBoy Watch AppUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5BEE71132E13DBC30020104F /* Debug */,
+				5BEE71142E13DBC30020104F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5BEE70D92E13DBC10020104F /* Project object */;
+}
