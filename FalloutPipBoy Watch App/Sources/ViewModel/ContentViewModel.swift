@@ -15,11 +15,12 @@ class ContentViewModel: ObservableObject {
     @Published var heartRate: String = "--"
     @Published var healthError: String? = nil
     @Published var bloodOxygen: String = "--%"
+    @Published var batteryLevel: String = "--%"
     @Published var isAuthorized: Bool = false
 
     @Published var frameTimer: Publishers.Autoconnect<Timer.TimerPublisher>
     @Published var clockTimer: Publishers.Autoconnect<Timer.TimerPublisher>
-    @Published var healthTimer: Publishers.Autoconnect<Timer.TimerPublisher>
+    @Published var updateTimer: Publishers.Autoconnect<Timer.TimerPublisher>
 
     let frames: [UIImage]
     let frameCount = 21
@@ -37,7 +38,7 @@ class ContentViewModel: ObservableObject {
                                                           frameHeight: frameHeight)
         self.frameTimer = Timer.publish(every: frameDuration, on: .main, in: .common).autoconnect()
         self.clockTimer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
-        self.healthTimer = Timer.publish(every: 10, on: .main, in: .common).autoconnect()
+        self.updateTimer = Timer.publish(every: 10, on: .main, in: .common).autoconnect()
         // Sync isAuthorized with HealthManager
         healthManager.$isAuthorized
             .receive(on: RunLoop.main)
@@ -102,6 +103,19 @@ class ContentViewModel: ObservableObject {
         await healthManager.requestAuthorization()
     }
 
+    func updateBatteryLevel() {
+        WKInterfaceDevice.current().isBatteryMonitoringEnabled = true
+        let level = WKInterfaceDevice.current().batteryLevel
+        WKInterfaceDevice.current().isBatteryMonitoringEnabled = false
+        if level >= 0 {
+            batteryLevel = String(format: "%03.0f%%", level * 100) // 3 digits with leading zeros
+            logger.debug("Battery level updated: \(self.batteryLevel)") // Debug battery
+        } else {
+            batteryLevel = "--%"
+            logger.error("Battery level unavailable")
+        }
+    }
+
     static func createSpriteFrames(imageName: String,
                                    frameCount: Int,
                                    frameWidth: CGFloat ,
@@ -130,7 +144,7 @@ class ContentViewModel: ObservableObject {
                 frames.append(frameImage)
             } else {
                 Logger(subsystem: Bundle.main.bundleIdentifier ?? "pipboy", category: "ContentViewModel")
-                .error("Error: Failed to crop frame \(i) at \(frameRect.width)x\(frameRect.height)")
+                    .error("Error: Failed to crop frame \(i) at \(frameRect.width)x\(frameRect.height)")
             }
         }
         Logger(subsystem: Bundle.main.bundleIdentifier ?? "pipboy", category: "ContentViewModel")

@@ -12,7 +12,7 @@ struct PipboyTextStyle: ViewModifier {
     var color: Color = .green
     func body(content: Content) -> some View {
         content
-            .font(.custom("Courier", size: size))
+            .font(.custom("monofonto", size: size))
             .dynamicTypeSize(.medium)
             .fontWeight(.bold)
             .foregroundColor(color)

@@ -46,8 +46,11 @@ class HealthManager: NSObject, ObservableObject {
         let heartRateType = HKObjectType.quantityType(forIdentifier: .heartRate)!
         let sortDescriptor = NSSortDescriptor(key: HKSampleSortIdentifierEndDate, ascending: false)
 
+        let startDate = Calendar.current.date(byAdding: .hour, value: -1, to: Date())!
+        let predicate = HKQuery.predicateForSamples(withStart: startDate, end: Date(), options: .strictStartDate)
+
         return try await withCheckedThrowingContinuation { continuation in
-            let query = HKSampleQuery(sampleType: heartRateType, predicate: nil, limit: 1, sortDescriptors: [sortDescriptor]) { _, samples, error in
+            let query = HKSampleQuery(sampleType: heartRateType, predicate: predicate, limit: 1, sortDescriptors: [sortDescriptor]) { _, samples, error in
                 if let error = error {
                     self.logger.debug("Heart rate query error: \(error)")
                     continuation.resume(throwing: error)
@@ -75,9 +78,11 @@ class HealthManager: NSObject, ObservableObject {
 
         let bloodOxygenType = HKQuantityType.quantityType(forIdentifier: .oxygenSaturation)!
         let sortDescriptor = NSSortDescriptor(key: HKSampleSortIdentifierEndDate, ascending: false)
+        let startDate = Calendar.current.date(byAdding: .hour, value: -1, to: Date())!
+        let predicate = HKQuery.predicateForSamples(withStart: startDate, end: Date())
 
         return try await withCheckedThrowingContinuation { continuation in
-            let query = HKSampleQuery(sampleType: bloodOxygenType, predicate: nil, limit: 1, sortDescriptors: [sortDescriptor]) { _, samples, error in
+            let query = HKSampleQuery(sampleType: bloodOxygenType, predicate: predicate, limit: 1, sortDescriptors: [sortDescriptor]) { _, samples, error in
                 if let error = error {
                     self.logger.debug("Blood oxygen query error: \(error)")
                     continuation.resume(throwing: error)
