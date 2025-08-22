@@ -2,10 +2,9 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSCriticalMessagingUsageDescription</key>
-	<string>Need access</string>
 	<key>UIAppFonts</key>
 	<array>
+		<string>digital.ttf</string>
 		<string>monofonto.otf</string>
 	</array>
 	<key>WKBackgroundModes</key>

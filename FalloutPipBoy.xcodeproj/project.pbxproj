@@ -6,28 +6,7 @@
 	objectVersion = 77;
 	objects = {
 
-/* Begin PBXBuildFile section */
-		5B00CDC02E51F0FC00115BAA /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B00CDBF2E51F0FC00115BAA /* WidgetKit.framework */; };
-		5B00CDC22E51F0FC00115BAA /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B00CDC12E51F0FC00115BAA /* SwiftUI.framework */; };
-		5B00CDCD2E51F0FD00115BAA /* ComplicationExtensionExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 5B00CDBD2E51F0FC00115BAA /* ComplicationExtensionExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		5BEE70E62E13DBC10020104F /* FalloutPipBoy Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 5BEE70E52E13DBC10020104F /* FalloutPipBoy Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-/* End PBXBuildFile section */
-
 /* Begin PBXContainerItemProxy section */
-		5B00CDCB2E51F0FD00115BAA /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 5BEE70D92E13DBC10020104F /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 5B00CDBC2E51F0FC00115BAA;
-			remoteInfo = ComplicationExtensionExtension;
-		};
-		5BEE70E72E13DBC10020104F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 5BEE70D92E13DBC10020104F /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 5BEE70E42E13DBC10020104F;
-			remoteInfo = "FalloutPipBoy Watch App";
-		};
 		5BEE70F52E13DBC30020104F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 5BEE70D92E13DBC10020104F /* Project object */;
@@ -51,80 +30,60 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				5B00CDCD2E51F0FD00115BAA /* ComplicationExtensionExtension.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		5BEE710B2E13DBC30020104F /* Embed Watch Content */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
-			dstSubfolderSpec = 16;
-			files = (
-				5BEE70E62E13DBC10020104F /* FalloutPipBoy Watch App.app in Embed Watch Content */,
-			);
-			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		5B00CDBD2E51F0FC00115BAA /* ComplicationExtensionExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ComplicationExtensionExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
-		5B00CDBF2E51F0FC00115BAA /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
-		5B00CDC12E51F0FC00115BAA /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
-		5BEE70DF2E13DBC10020104F /* FalloutPipBoy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FalloutPipBoy.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B98EFEC2E8A8E24008C7B37 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		5BEE70E52E13DBC10020104F /* FalloutPipBoy Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FalloutPipBoy Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BEE70F42E13DBC30020104F /* FalloutPipBoy Watch AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "FalloutPipBoy Watch AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BEE70FE2E13DBC30020104F /* FalloutPipBoy Watch AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "FalloutPipBoy Watch AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		5B00CDD12E51F0FD00115BAA /* Exceptions for "ComplicationExtension" folder in "ComplicationExtensionExtension" target */ = {
+		5B98EFF82E8A9462008C7B37 /* Exceptions for "FalloutPipBoy" folder in "FalloutPipBoy Watch App" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				Info.plist,
+				Sources/Tests/UITests/FalloutPipBoyUITests.swift,
+				Sources/Tests/UITests/FalloutPipBoyUITestsLaunchTests.swift,
+				Sources/Tests/UnitTests/FalloutPipBoy_Watch_AppTests.swift,
 			);
-			target = 5B00CDBC2E51F0FC00115BAA /* ComplicationExtensionExtension */;
+			target = 5BEE70E42E13DBC10020104F /* FalloutPipBoy Watch App */;
+		};
+		5B98F00F2E8A9495008C7B37 /* Exceptions for "FalloutPipBoy" folder in "FalloutPipBoy Watch AppTests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Sources/Tests/UnitTests/FalloutPipBoy_Watch_AppTests.swift,
+			);
+			target = 5BEE70F32E13DBC30020104F /* FalloutPipBoy Watch AppTests */;
+		};
+		5B98F0102E8A9495008C7B37 /* Exceptions for "FalloutPipBoy" folder in "FalloutPipBoy Watch AppUITests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Sources/Tests/UITests/FalloutPipBoyUITests.swift,
+				Sources/Tests/UITests/FalloutPipBoyUITestsLaunchTests.swift,
+			);
+			target = 5BEE70FD2E13DBC30020104F /* FalloutPipBoy Watch AppUITests */;
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		5B00CDC32E51F0FC00115BAA /* ComplicationExtension */ = {
+		5BEE70E92E13DBC10020104F /* FalloutPipBoy */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				5B00CDD12E51F0FD00115BAA /* Exceptions for "ComplicationExtension" folder in "ComplicationExtensionExtension" target */,
+				5B98EFF82E8A9462008C7B37 /* Exceptions for "FalloutPipBoy" folder in "FalloutPipBoy Watch App" target */,
+				5B98F00F2E8A9495008C7B37 /* Exceptions for "FalloutPipBoy" folder in "FalloutPipBoy Watch AppTests" target */,
+				5B98F0102E8A9495008C7B37 /* Exceptions for "FalloutPipBoy" folder in "FalloutPipBoy Watch AppUITests" target */,
 			);
-			path = ComplicationExtension;
-			sourceTree = "<group>";
-		};
-		5BEE70E92E13DBC10020104F /* FalloutPipBoy Watch App */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = "FalloutPipBoy Watch App";
-			sourceTree = "<group>";
-		};
-		5BEE70F72E13DBC30020104F /* FalloutPipBoy Watch AppTests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = "FalloutPipBoy Watch AppTests";
-			sourceTree = "<group>";
-		};
-		5BEE71012E13DBC30020104F /* FalloutPipBoy Watch AppUITests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = "FalloutPipBoy Watch AppUITests";
+			path = FalloutPipBoy;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		5B00CDBA2E51F0FC00115BAA /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				5B00CDC22E51F0FC00115BAA /* SwiftUI.framework in Frameworks */,
-				5B00CDC02E51F0FC00115BAA /* WidgetKit.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		5BEE70E22E13DBC10020104F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -152,8 +111,6 @@
 		5B00CDBE2E51F0FC00115BAA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				5B00CDBF2E51F0FC00115BAA /* WidgetKit.framework */,
-				5B00CDC12E51F0FC00115BAA /* SwiftUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -161,23 +118,19 @@
 		5BEE70D82E13DBC10020104F = {
 			isa = PBXGroup;
 			children = (
-				5BEE70E92E13DBC10020104F /* FalloutPipBoy Watch App */,
-				5BEE70F72E13DBC30020104F /* FalloutPipBoy Watch AppTests */,
-				5BEE71012E13DBC30020104F /* FalloutPipBoy Watch AppUITests */,
-				5B00CDC32E51F0FC00115BAA /* ComplicationExtension */,
+				5BEE70E92E13DBC10020104F /* FalloutPipBoy */,
 				5B00CDBE2E51F0FC00115BAA /* Frameworks */,
 				5BEE70E02E13DBC10020104F /* Products */,
+				5B98EFEC2E8A8E24008C7B37 /* README.md */,
 			);
 			sourceTree = "<group>";
 		};
 		5BEE70E02E13DBC10020104F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5BEE70DF2E13DBC10020104F /* FalloutPipBoy.app */,
 				5BEE70E52E13DBC10020104F /* FalloutPipBoy Watch App.app */,
 				5BEE70F42E13DBC30020104F /* FalloutPipBoy Watch AppTests.xctest */,
 				5BEE70FE2E13DBC30020104F /* FalloutPipBoy Watch AppUITests.xctest */,
-				5B00CDBD2E51F0FC00115BAA /* ComplicationExtensionExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -185,47 +138,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		5B00CDBC2E51F0FC00115BAA /* ComplicationExtensionExtension */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 5B00CDD22E51F0FD00115BAA /* Build configuration list for PBXNativeTarget "ComplicationExtensionExtension" */;
-			buildPhases = (
-				5B00CDB92E51F0FC00115BAA /* Sources */,
-				5B00CDBA2E51F0FC00115BAA /* Frameworks */,
-				5B00CDBB2E51F0FC00115BAA /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			fileSystemSynchronizedGroups = (
-				5B00CDC32E51F0FC00115BAA /* ComplicationExtension */,
-			);
-			name = ComplicationExtensionExtension;
-			packageProductDependencies = (
-			);
-			productName = ComplicationExtensionExtension;
-			productReference = 5B00CDBD2E51F0FC00115BAA /* ComplicationExtensionExtension.appex */;
-			productType = "com.apple.product-type.app-extension";
-		};
-		5BEE70DE2E13DBC10020104F /* FalloutPipBoy */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 5BEE710C2E13DBC30020104F /* Build configuration list for PBXNativeTarget "FalloutPipBoy" */;
-			buildPhases = (
-				5BEE70DD2E13DBC10020104F /* Resources */,
-				5BEE710B2E13DBC30020104F /* Embed Watch Content */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				5BEE70E82E13DBC10020104F /* PBXTargetDependency */,
-			);
-			name = FalloutPipBoy;
-			packageProductDependencies = (
-			);
-			productName = FalloutPipBoy;
-			productReference = 5BEE70DF2E13DBC10020104F /* FalloutPipBoy.app */;
-			productType = "com.apple.product-type.application.watchapp2-container";
-		};
 		5BEE70E42E13DBC10020104F /* FalloutPipBoy Watch App */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5BEE71082E13DBC30020104F /* Build configuration list for PBXNativeTarget "FalloutPipBoy Watch App" */;
@@ -238,10 +150,9 @@
 			buildRules = (
 			);
 			dependencies = (
-				5B00CDCC2E51F0FD00115BAA /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				5BEE70E92E13DBC10020104F /* FalloutPipBoy Watch App */,
+				5BEE70E92E13DBC10020104F /* FalloutPipBoy */,
 			);
 			name = "FalloutPipBoy Watch App";
 			packageProductDependencies = (
@@ -263,9 +174,6 @@
 			dependencies = (
 				5BEE70F62E13DBC30020104F /* PBXTargetDependency */,
 			);
-			fileSystemSynchronizedGroups = (
-				5BEE70F72E13DBC30020104F /* FalloutPipBoy Watch AppTests */,
-			);
 			name = "FalloutPipBoy Watch AppTests";
 			packageProductDependencies = (
 			);
@@ -286,9 +194,6 @@
 			dependencies = (
 				5BEE71002E13DBC30020104F /* PBXTargetDependency */,
 			);
-			fileSystemSynchronizedGroups = (
-				5BEE71012E13DBC30020104F /* FalloutPipBoy Watch AppUITests */,
-			);
 			name = "FalloutPipBoy Watch AppUITests";
 			packageProductDependencies = (
 			);
@@ -306,12 +211,6 @@
 				LastSwiftUpdateCheck = 2600;
 				LastUpgradeCheck = 2600;
 				TargetAttributes = {
-					5B00CDBC2E51F0FC00115BAA = {
-						CreatedOnToolsVersion = 26.0;
-					};
-					5BEE70DE2E13DBC10020104F = {
-						CreatedOnToolsVersion = 26.0;
-					};
 					5BEE70E42E13DBC10020104F = {
 						CreatedOnToolsVersion = 26.0;
 					};
@@ -341,30 +240,14 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				5BEE70DE2E13DBC10020104F /* FalloutPipBoy */,
 				5BEE70E42E13DBC10020104F /* FalloutPipBoy Watch App */,
 				5BEE70F32E13DBC30020104F /* FalloutPipBoy Watch AppTests */,
 				5BEE70FD2E13DBC30020104F /* FalloutPipBoy Watch AppUITests */,
-				5B00CDBC2E51F0FC00115BAA /* ComplicationExtensionExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		5B00CDBB2E51F0FC00115BAA /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		5BEE70DD2E13DBC10020104F /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		5BEE70E32E13DBC10020104F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -389,13 +272,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		5B00CDB92E51F0FC00115BAA /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		5BEE70E12E13DBC10020104F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -420,16 +296,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		5B00CDCC2E51F0FD00115BAA /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 5B00CDBC2E51F0FC00115BAA /* ComplicationExtensionExtension */;
-			targetProxy = 5B00CDCB2E51F0FD00115BAA /* PBXContainerItemProxy */;
-		};
-		5BEE70E82E13DBC10020104F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 5BEE70E42E13DBC10020104F /* FalloutPipBoy Watch App */;
-			targetProxy = 5BEE70E72E13DBC10020104F /* PBXContainerItemProxy */;
-		};
 		5BEE70F62E13DBC30020104F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 5BEE70E42E13DBC10020104F /* FalloutPipBoy Watch App */;
@@ -443,73 +309,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		5B00CDCF2E51F0FD00115BAA /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = MBM8NLR735;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = ComplicationExtension/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = ComplicationExtension;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-					"@executable_path/../../../../Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = amongus.com.FalloutPipBoy.watchkitapp.ComplicationExtension;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				STRING_CATALOG_GENERATE_SYMBOLS = YES;
-				SWIFT_APPROACHABLE_CONCURRENCY = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 26.0;
-			};
-			name = Debug;
-		};
-		5B00CDD02E51F0FD00115BAA /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = MBM8NLR735;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = ComplicationExtension/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = ComplicationExtension;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-					"@executable_path/../../../../Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = amongus.com.FalloutPipBoy.watchkitapp.ComplicationExtension;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				STRING_CATALOG_GENERATE_SYMBOLS = YES;
-				SWIFT_APPROACHABLE_CONCURRENCY = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 4;
-				VALIDATE_PRODUCT = YES;
-				WATCHOS_DEPLOYMENT_TARGET = 26.0;
-			};
-			name = Release;
-		};
 		5BEE71062E13DBC30020104F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -548,7 +347,7 @@
 				DEVELOPMENT_TEAM = 34Z5QG59S2;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -610,7 +409,7 @@
 				DEVELOPMENT_TEAM = 34Z5QG59S2;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -631,7 +430,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "FalloutPipBoy Watch App/FalloutPipBoy Watch App.entitlements";
+				CODE_SIGN_ENTITLEMENTS = FalloutPipBoy/FalloutPipBoy.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = MBM8NLR735;
@@ -639,6 +438,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "FalloutPipBoy-Watch-App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = FalloutPipBoy;
+				INFOPLIST_KEY_NSCriticalMessagingUsageDescription = "Need access";
 				INFOPLIST_KEY_NSHealthClinicalHealthRecordsShareUsageDescription = "This app needs access to your heart rate data to show your recent heart rate in the PipBoy interface";
 				INFOPLIST_KEY_NSHealthShareUsageDescription = "This app needs access to your heart rate data to show your recent heart rate in the PipBoy interface";
 				INFOPLIST_KEY_NSHealthUpdateUsageDescription = bpm;
@@ -668,7 +468,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "FalloutPipBoy Watch App/FalloutPipBoy Watch App.entitlements";
+				CODE_SIGN_ENTITLEMENTS = FalloutPipBoy/FalloutPipBoy.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = MBM8NLR735;
@@ -676,6 +476,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "FalloutPipBoy-Watch-App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = FalloutPipBoy;
+				INFOPLIST_KEY_NSCriticalMessagingUsageDescription = "Need access";
 				INFOPLIST_KEY_NSHealthClinicalHealthRecordsShareUsageDescription = "This app needs access to your heart rate data to show your recent heart rate in the PipBoy interface";
 				INFOPLIST_KEY_NSHealthShareUsageDescription = "This app needs access to your heart rate data to show your recent heart rate in the PipBoy interface";
 				INFOPLIST_KEY_NSHealthUpdateUsageDescription = bpm;
@@ -698,41 +499,6 @@
 				TARGETED_DEVICE_FAMILY = 4;
 				VALIDATE_PRODUCT = YES;
 				WATCHOS_DEPLOYMENT_TARGET = 11.6;
-			};
-			name = Release;
-		};
-		5BEE710D2E13DBC30020104F /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = MBM8NLR735;
-				INFOPLIST_KEY_CFBundleDisplayName = FalloutPipBoy;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.6;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = amongus.com.FalloutPipBoy;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
-			};
-			name = Debug;
-		};
-		5BEE710E2E13DBC30020104F /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = MBM8NLR735;
-				INFOPLIST_KEY_CFBundleDisplayName = FalloutPipBoy;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.6;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = amongus.com.FalloutPipBoy;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
-				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
@@ -827,15 +593,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		5B00CDD22E51F0FD00115BAA /* Build configuration list for PBXNativeTarget "ComplicationExtensionExtension" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				5B00CDCF2E51F0FD00115BAA /* Debug */,
-				5B00CDD02E51F0FD00115BAA /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		5BEE70DC2E13DBC10020104F /* Build configuration list for PBXProject "FalloutPipBoy" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -850,15 +607,6 @@
 			buildConfigurations = (
 				5BEE71092E13DBC30020104F /* Debug */,
 				5BEE710A2E13DBC30020104F /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		5BEE710C2E13DBC30020104F /* Build configuration list for PBXNativeTarget "FalloutPipBoy" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				5BEE710D2E13DBC30020104F /* Debug */,
-				5BEE710E2E13DBC30020104F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
