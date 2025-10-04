@@ -11,8 +11,9 @@ import SwiftUI
 /// A "tube" path between points with a slight rounding
 struct TubePath: Shape {
     let from: CGPoint
+    // swiftlint:disable:next identifier_name
     let to: CGPoint
-    
+
     func path(in rect: CGRect) -> Path {
         var path = Path()
         path.move(to: from)

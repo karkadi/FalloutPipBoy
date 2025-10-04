@@ -1,5 +1,5 @@
 //
-//  FalloutPipBoy_Watch_AppUITestsLaunchTests.swift
+//  FalloutPipBoyUITestsLaunchTests.swift
 //  FalloutPipBoyUITests
 //
 //  Created by Arkadiy KAZAZYAN on 01/07/2025.
@@ -7,9 +7,9 @@
 
 import XCTest
 
-final class FalloutPipBoy_Watch_AppUITestsLaunchTests: XCTestCase {
+final class FalloutPipBoyUITestsLaunchTests: XCTestCase {
 
-    override class var runsForEachTargetApplicationUIConfiguration: Bool {
+    override static var runsForEachTargetApplicationUIConfiguration: Bool {
         true
     }
 

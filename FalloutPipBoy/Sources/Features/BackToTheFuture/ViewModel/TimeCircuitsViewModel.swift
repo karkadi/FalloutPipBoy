@@ -8,7 +8,8 @@
 import Foundation
 internal import Combine
 
-class TimeCircuitsViewModel: ObservableObject {
+@MainActor
+final class TimeCircuitsViewModel: ObservableObject {
     @Published var monthYear: String = "OCT 26 1985"
     @Published var month: String = "OCT"
     
@@ -20,7 +21,8 @@ class TimeCircuitsViewModel: ObservableObject {
     
     @Published var dateComponents: DateComponents = DateComponents()
     
-    private var timer: Timer?
+    private var timerTask: Task<Void, Never>?
+    private var animationTask: Task<Void, Never>?
     private var currentDate = Date()
     private var isAnimating = false
     private var animationStep = 0
@@ -53,16 +55,37 @@ class TimeCircuitsViewModel: ObservableObject {
         updateDisplay()
     }
     
+    deinit {
+        timerTask?.cancel()
+        animationTask?.cancel()
+    }
+    
+    func stopUpdates() async {
+        timerTask?.cancel()
+        timerTask = nil
+        animationTask?.cancel()
+        animationTask = nil
+    }
+    
     func startUpdates() {
-        timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [weak self] _ in
-            self?.currentDate = Date()
-            self?.updateDisplay()
+        guard timerTask == nil else { return }
+        
+        timerTask = Task { @MainActor in
+            while !Task.isCancelled {
+                // Update date and display
+                self.currentDate = Date()
+                self.updateDisplay()
+                
+                // Wait for 1 second
+                try? await Task.sleep(nanoseconds: 1_000_000_000)
+            }
         }
     }
     
     func stopUpdates() {
-        timer?.invalidate()
-        timer = nil
+        Task { @MainActor in
+            await self.stopUpdates()
+        }
     }
     
     private func updateDisplay() {
@@ -103,27 +126,32 @@ class TimeCircuitsViewModel: ObservableObject {
     }
     
     private func startDateAnimation(targetDate: Date) {
-        Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { [weak self] timer in
-            guard let self = self else {
-                timer.invalidate()
-                return
+        // Cancel any existing animation
+        animationTask?.cancel()
+        
+        animationTask = Task { @MainActor in
+            let totalSteps = 20
+            
+            for step in 0...totalSteps {
+                guard !Task.isCancelled else { break }
+                
+                if step >= totalSteps {
+                    // Final step - set actual values
+                    self.monthYear = self.dateFormatter.string(from: targetDate).uppercased()
+                    self.dayOfWeek = self.dayFormatter.string(from: targetDate).uppercased()
+                    self.time = self.timeFormatter.string(from: targetDate)
+                    self.isAnimating = false
+                    break
+                }
+                
+                // Animate digits
+                self.monthYear = self.animateString(self.dateFormatter.string(from: targetDate).uppercased())
+                self.dayOfWeek = self.animateString(self.dayFormatter.string(from: targetDate).uppercased())
+                self.time = self.animateString(self.timeFormatter.string(from: targetDate))
+                
+                // Wait for 0.1 seconds between animation steps
+                try? await Task.sleep(nanoseconds: 100_000_000)
             }
-            
-            if self.animationStep >= 20 {
-                timer.invalidate()
-                self.isAnimating = false
-                self.monthYear = self.dateFormatter.string(from: targetDate).uppercased()
-                self.dayOfWeek = self.dayFormatter.string(from: targetDate).uppercased()
-                self.time = self.timeFormatter.string(from: targetDate)
-                return
-            }
-            
-            // Animate digits
-            self.monthYear = self.animateString(self.dateFormatter.string(from: targetDate).uppercased())
-            self.dayOfWeek = self.animateString(self.dayFormatter.string(from: targetDate).uppercased())
-            self.time = self.animateString(self.timeFormatter.string(from: targetDate))
-            
-            self.animationStep += 1
         }
     }
     

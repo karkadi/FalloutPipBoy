@@ -49,14 +49,14 @@
 			membershipExceptions = (
 				Sources/Tests/UITests/FalloutPipBoyUITests.swift,
 				Sources/Tests/UITests/FalloutPipBoyUITestsLaunchTests.swift,
-				Sources/Tests/UnitTests/FalloutPipBoy_Watch_AppTests.swift,
+				Sources/Tests/UnitTests/FalloutPipBoyWatchTests.swift,
 			);
 			target = 5BEE70E42E13DBC10020104F /* FalloutPipBoy Watch App */;
 		};
 		5B98F00F2E8A9495008C7B37 /* Exceptions for "FalloutPipBoy" folder in "FalloutPipBoy Watch AppTests" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				Sources/Tests/UnitTests/FalloutPipBoy_Watch_AppTests.swift,
+				Sources/Tests/UnitTests/FalloutPipBoyWatchTests.swift,
 			);
 			target = 5BEE70F32E13DBC30020104F /* FalloutPipBoy Watch AppTests */;
 		};
@@ -146,6 +146,7 @@
 				5BEE70E22E13DBC10020104F /* Frameworks */,
 				5BEE70E32E13DBC10020104F /* Resources */,
 				5B00CDCE2E51F0FD00115BAA /* Embed Foundation Extensions */,
+				5BF438042E90F35F00A4670F /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -209,7 +210,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 2600;
-				LastUpgradeCheck = 2600;
+				LastUpgradeCheck = 2610;
 				TargetAttributes = {
 					5BEE70E42E13DBC10020104F = {
 						CreatedOnToolsVersion = 26.0;
@@ -270,6 +271,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5BF438042E90F35F00A4670F /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(BUILD_DIR)/swiftlint_output.log",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -euo pipefail\n\nif [ -x \"/opt/homebrew/bin/swiftlint\" ]; then\n  CONFIG_PATH=\"${PROJECT_DIR}/.swiftlint.yml\"\n  LINT_OUTPUT=\"${BUILD_DIR}/swiftlint_output.log\"\n  \n  if [ -f \"$CONFIG_PATH\" ]; then\n    /opt/homebrew/bin/swiftlint --config \"$CONFIG_PATH\" --strict > \"$LINT_OUTPUT\"\n  else\n    /opt/homebrew/bin/swiftlint --strict > \"$LINT_OUTPUT\"\n  fi\n  \n  # Print results to console\n  if [ -f \"$LINT_OUTPUT\" ]; then\n    cat \"$LINT_OUTPUT\"\n  fi\nelse\n  echo \"warning: SwiftLint not found at /opt/homebrew/bin/swiftlint\"\n  # Create empty output file to satisfy dependency\n  mkdir -p \"${BUILD_DIR}\"\n  touch \"${BUILD_DIR}/swiftlint_output.log\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		5BEE70E12E13DBC10020104F /* Sources */ = {
@@ -343,6 +366,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = 34Z5QG59S2;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -366,6 +390,7 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -405,6 +430,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 34Z5QG59S2;
 				ENABLE_NS_ASSERTIONS = NO;
@@ -421,6 +447,7 @@
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 			};
 			name = Release;
@@ -433,7 +460,7 @@
 				CODE_SIGN_ENTITLEMENTS = FalloutPipBoy/FalloutPipBoy.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = MBM8NLR735;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "FalloutPipBoy-Watch-App-Info.plist";
@@ -456,8 +483,9 @@
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_STRICT_CONCURRENCY = complete;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 11.6;
 			};
@@ -471,7 +499,7 @@
 				CODE_SIGN_ENTITLEMENTS = FalloutPipBoy/FalloutPipBoy.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = MBM8NLR735;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "FalloutPipBoy-Watch-App-Info.plist";
@@ -494,8 +522,9 @@
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_STRICT_CONCURRENCY = complete;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				VALIDATE_PRODUCT = YES;
 				WATCHOS_DEPLOYMENT_TARGET = 11.6;

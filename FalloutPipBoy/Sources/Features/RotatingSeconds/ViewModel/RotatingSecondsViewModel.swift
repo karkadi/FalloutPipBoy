@@ -5,9 +5,10 @@
 //  Created by Arkadiy KAZAZYAN on 17/08/2025.
 //
 
-internal import Combine
 import Foundation
+internal import Combine
 
+@MainActor
 final class RotatingSecondsViewModel: ObservableObject {
     @Published var now: Date = Date()
     @Published var preciseSecond: Double = 0
@@ -16,13 +17,12 @@ final class RotatingSecondsViewModel: ObservableObject {
     @Published var minutes: Int = 0
     @Published var hour: Int = 0
 
-    private var timer: AnyCancellable?
+    private var timerTask: Task<Void, Never>?
 
     init() {
-        timer = Timer.publish(every: 1.0/60.0, on: .main, in: .common)
-            .autoconnect()
-            .sink { [weak self] date in
-                guard let self = self else { return }
+        timerTask = Task { @MainActor in
+            while !Task.isCancelled {
+                let date = Date()
                 self.now = date
                 let calendar = Calendar.current
                 self.secondFraction = calendar.component(.second, from: date)
@@ -30,10 +30,13 @@ final class RotatingSecondsViewModel: ObservableObject {
                 self.preciseSecond = Double(self.secondFraction) + Double(self.nanosec) / 1_000_000_000
                 self.minutes = calendar.component(.minute, from: date)
                 self.hour = calendar.component(.hour, from: date)
+                
+                try? await Task.sleep(nanoseconds: 16_666_667) // ~60fps
             }
+        }
     }
 
     deinit {
-        timer?.cancel()
+        timerTask?.cancel()
     }
 }

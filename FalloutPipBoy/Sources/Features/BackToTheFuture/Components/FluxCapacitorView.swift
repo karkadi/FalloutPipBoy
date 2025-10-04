@@ -8,6 +8,12 @@
 import SwiftUI
 
 struct FluxCapacitorView: View {
+    struct TriangleVertices {
+        let point1: CGPoint
+        let point2: CGPoint
+        let point3: CGPoint
+    }
+    
     var glowColor: Color = Color.white
     var backgroundColor: Color = Color.black
     var speed: Double = 60.0 // the speed of the impulse
@@ -31,8 +37,8 @@ struct FluxCapacitorView: View {
                     
                     // Three "tubes" from the center to the vertices
                     ForEach(0..<3) { index in
-                        let vertice = [vertices.0, vertices.1, vertices.2][index]
-                        let radius = [centerOffset.0, centerOffset.1, centerOffset.2][index]
+                        let vertice = [vertices.point1, vertices.point2, vertices.point3][index]
+                        let radius = [centerOffset.point1, centerOffset.point2, centerOffset.point3][index]
                         
                         // Running pulse (dashed line with phase)
                         TubePath(from: radius, to: vertice)
@@ -59,14 +65,14 @@ struct FluxCapacitorView: View {
     }
     
     // Vertices of an equilateral triangle
-    private func equilateralVertices(center: CGPoint, radius: CGFloat, rotation: CGFloat = 0) -> (CGPoint, CGPoint, CGPoint) {
+    private func equilateralVertices(center: CGPoint, radius: CGFloat, rotation: CGFloat = 0) -> TriangleVertices {
         func point(_ angle: CGFloat) -> CGPoint {
             CGPoint(
                 x: center.x + cos(angle + rotation) * radius,
                 y: center.y + sin(angle + rotation) * radius
             )
         }
-        return (point(0), point(3 * .pi / 4), point( 5 * .pi / 4))
+        return TriangleVertices(point1: point(0), point2: point(3 * .pi / 4), point3: point( 5 * .pi / 4))
     }
 }
 

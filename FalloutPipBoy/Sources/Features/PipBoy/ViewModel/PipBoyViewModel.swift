@@ -10,7 +10,7 @@ internal import Combine
 import os
 
 @MainActor
-class PipBoyViewModel: ObservableObject {
+final class PipBoyViewModel: ObservableObject {
     private let logger = Logger(subsystem: Bundle.main.bundleIdentifier ?? "pipboy", category: "PipBoyViewModel")
 
     @Published var currentFrameIndex = 0
