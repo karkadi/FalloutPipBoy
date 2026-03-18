@@ -6,20 +6,20 @@
 //
 
 import Foundation
-internal import Combine
 
 @MainActor
-final class TimeCircuitsViewModel: ObservableObject {
-    @Published var monthYear: String = "OCT 26 1985"
-    @Published var month: String = "OCT"
+@Observable
+final class TimeCircuitsViewModel {
+    var monthYear: String = "OCT 26 1985"
+    var month: String = "OCT"
     
-    @Published var dayOfWeek: String = "MONDAY"
-    @Published var time: String = "01:21:00"
-    @Published var destinationTime: String = "NOV 05 1955"
-    @Published var presentTime: String = "OCT 26 1985"
-    @Published var lastTimeDeparted: String = "-- -- ----"
+    var dayOfWeek: String = "MONDAY"
+    var time: String = "01:21:00"
+    var destinationTime: String = "NOV 05 1955"
+    var presentTime: String = "OCT 26 1985"
+    var lastTimeDeparted: String = "-- -- ----"
     
-    @Published var dateComponents: DateComponents = DateComponents()
+    var dateComponents: DateComponents = DateComponents()
     
     private var timerTask: Task<Void, Never>?
     private var animationTask: Task<Void, Never>?
@@ -29,7 +29,7 @@ final class TimeCircuitsViewModel: ObservableObject {
     
     private let dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
-        formatter.dateFormat = "MMM dd yyyy"
+        formatter.dateFormat = "yyyy"
         return formatter
     }()
     
@@ -55,16 +55,10 @@ final class TimeCircuitsViewModel: ObservableObject {
         updateDisplay()
     }
     
+    @MainActor
     deinit {
         timerTask?.cancel()
         animationTask?.cancel()
-    }
-    
-    func stopUpdates() async {
-        timerTask?.cancel()
-        timerTask = nil
-        animationTask?.cancel()
-        animationTask = nil
     }
     
     func startUpdates() {
@@ -83,9 +77,10 @@ final class TimeCircuitsViewModel: ObservableObject {
     }
     
     func stopUpdates() {
-        Task { @MainActor in
-            await self.stopUpdates()
-        }
+        timerTask?.cancel()
+        timerTask = nil
+        animationTask?.cancel()
+        animationTask = nil
     }
     
     private func updateDisplay() {
@@ -134,7 +129,7 @@ final class TimeCircuitsViewModel: ObservableObject {
             
             for step in 0...totalSteps {
                 guard !Task.isCancelled else { break }
-                
+                animationStep = step
                 if step >= totalSteps {
                     // Final step - set actual values
                     self.monthYear = self.dateFormatter.string(from: targetDate).uppercased()
@@ -161,7 +156,7 @@ final class TimeCircuitsViewModel: ObservableObject {
             if char == " " || char == ":" {
                 result.append(char)
             } else {
-                let randomDigit = String(Int.random(in: 0...9))
+                let randomDigit = String(( Int(char.asciiValue ?? 0) + animationStep) % 10)
                 result.append(randomDigit)
             }
         }

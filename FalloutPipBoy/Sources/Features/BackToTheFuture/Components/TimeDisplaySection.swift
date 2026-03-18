@@ -8,10 +8,11 @@ import SwiftUI
 
 struct TimeDisplaySection: View {
     
+    let geoSize: CGSize
     let month: String
     let day: Int
     let hour: Int
-    let year: Int
+    let year: String
     let min: Int
     
     let digitsColor: Color
@@ -19,84 +20,104 @@ struct TimeDisplaySection: View {
     let isOn: Bool
     
     var body: some View {
+        
+        let totalWidth = geoSize.width
+        let scale = Swift.min(totalWidth / 200.0, 2.0) // Scale based on width, max 2x
+        let fontSize = 14 * scale
+        let titleSize = 7 * scale
+        let spacing = 8 * scale
+        let circleSize = 3 * scale
+        
         VStack(spacing: 0) {
-            HStack(spacing: 0) {
+            HStack(spacing: spacing) {
+                // MONTH
                 VStack(spacing: 1) {
-                    
                     Text("MONTH")
-                        .titleCircuitText()
+                        .titleCircuitText(size: 6 * scale)
                     Text(month)
-                        .circuitText(color: digitsColor)
+                        .circuitText(size: fontSize, width: 27 * scale, color: digitsColor)
                 }
-                Spacer()
-                    .frame(width: 4)
                 
+                // DAY
                 VStack(spacing: 1) {
                     Text("DAY")
-                        .titleCircuitText()
-                    Text(String(format: "%.2d", day ))
-                        .circuitText(color: digitsColor)
+                        .titleCircuitText(size: 6 * scale)
+                    Text(String(format: "%02d", day))
+                        .circuitText(size: fontSize, width: 18 * scale, color: digitsColor)
                 }
-                Spacer()
-                    .frame(width: 4)
+                
+                // YEAR
                 VStack(spacing: 1) {
                     Text("YEAR")
-                        .titleCircuitText()
-                    
-                    Text(String(format: "%d", year ))
-                        .circuitText(color: digitsColor)
+                        .titleCircuitText(size: 6 * scale)
+                    Text(String(year))
+                        .circuitText(size: fontSize, width: 36 * scale, color: digitsColor)
+                        .frame(width: 36 * scale)
                 }
-                Spacer()
-                    .frame(width: 4)
+                .offset(x: 5.0 * scale)
+                
+                // HOUR
                 VStack(spacing: 1) {
                     Text("HOUR")
-                        .titleCircuitText()
-                    Text(String(format: "%.2d", hour ))
-                        .circuitText(color: digitsColor)
+                        .titleCircuitText(size: 6 * scale)
+                    Text(String(format: "%02d", hour))
+                        .circuitText(size: fontSize, width: 18 * scale, color: digitsColor)
                 }
-  
-                VStack(spacing: 1) {
-                    Spacer()
-                Image(systemName: "circle.fill")
-                        .resizable()
-                        .scaledToFill()
-                        .foregroundStyle(isOn ? .black : digitsColor)
-                        .frame(width: 5, height: 5)
-                        .blur(radius: 0.6)
-                    
-                    Image(systemName: "circle.fill")
-                        .resizable()
-                        .scaledToFill()
-                            .foregroundStyle(isOn ? .black : digitsColor)
-                            .frame(width: 5, height: 5)
-                            .padding(.bottom, 4)
-                            .blur(radius: 0.6)
-                }
-                .padding(.horizontal, 1)
-                .offset(x: -1, y: -10)
+                .offset(x: 8.0 * scale)
                 
+                // Colon separator
+                VStack(spacing: 0.3 * spacing) {
+                    Circle()
+                        .fill(isOn ? .black : digitsColor)
+                        .frame(width: circleSize, height: circleSize)
+                        .blur(radius: 0.5)
+                        .padding(.top)
+                    
+                    Circle()
+                        .fill(isOn ? .black : digitsColor)
+                        .frame(width: circleSize, height: circleSize)
+                        .blur(radius: 0.5)
+                }
+                .offset(x: 4.0 * scale)
+                
+                // MIN
                 VStack(spacing: 1) {
                     Text("MIN")
-                        .titleCircuitText()
-                    Text(String(format: "%.2d", min ))
-                        .circuitText(color: digitsColor)
+                        .titleCircuitText(size: 6 * scale)
+                    Text(String(format: "%02d", min))
+                        .circuitText(size: fontSize, width: 18 * scale, color: digitsColor)
                 }
-                
             }
+            .frame(maxWidth: .infinity)
             
             Text(title)
-                .font(.system(size: 8, weight: .bold, design: .monospaced))
+                .font(.system(size: titleSize, weight: .bold, design: .monospaced))
                 .foregroundColor(.white)
                 .padding(.horizontal, 2)
+                .padding(.vertical, 1)
                 .background {
                     Rectangle()
                         .foregroundStyle(.black)
                 }
-                .padding(.top, 0)
-            
+                .padding(.top, 2 * scale)
         }
-        .padding(.vertical, 2)
-        .padding(.horizontal, 12)
-        
+    }
+}
+
+#Preview {
+    GeometryReader { geometry in
+        TimeDisplaySection(
+            geoSize: geometry.size,
+            month: "AUG",
+            day: 26,
+            hour: 21,
+            year: "2025",
+            min: 0,
+            digitsColor: .red,
+            title: "Destination Time",
+            isOn: true
+        )
+        .background(Color(.gray))
+        .ignoresSafeArea(.all)
     }
 }

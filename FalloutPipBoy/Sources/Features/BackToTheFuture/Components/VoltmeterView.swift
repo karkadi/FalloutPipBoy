@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-internal import Combine
 
 struct VoltmeterView: View {
     var currentVoltage: Double = 85.0

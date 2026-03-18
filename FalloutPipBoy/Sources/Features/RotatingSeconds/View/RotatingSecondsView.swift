@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct RotatingSecondsView: View {
-    @StateObject private var viewModel = RotatingSecondsViewModel()
+    @State private var viewModel = RotatingSecondsViewModel()
 
     var body: some View {
         GeometryReader { geometry in

@@ -7,15 +7,14 @@
 
 import Foundation
 import HealthKit
-internal import Combine
 import OSLog
+import Observation
 
 /// `HealthManager` is a utility class for interacting with HealthKit on Apple platforms.
-/// 
+///
 /// This class manages authorization and reads heart rate and blood oxygen data from HealthKit.
-/// It requires user authorization and is designed to function as an `ObservableObject`,
-/// so its authorization state can be observed by SwiftUI views or other reactive components.
-/// 
+/// It requires user authorization and uses the `@Observable` macro for SwiftUI observation.
+///
 /// ## Capabilities
 /// - Requests HealthKit authorization for reading heart rate and blood oxygen data
 /// - Provides methods to fetch the most recent heart rate and blood oxygen saturation sample
@@ -33,21 +32,20 @@ import OSLog
 ///
 /// ## Example
 /// ```swift
-/// let manager = HealthManager()
-/// await manager.requestAuthorization()
-/// if manager.isAuthorized {
-///     let heartRate = try await manager.getRecentHeartRate()
-///     let spO2 = try await manager.getRecentBloodOxygen()
+/// @Environment(HealthManager.self) private var healthManager
+/// await healthManager.requestAuthorization()
+/// if healthManager.isAuthorized {
+///     let heartRate = try await healthManager.getRecentHeartRate()
+///     let spO2 = try await healthManager.getRecentBloodOxygen()
 /// }
 /// ```
-class HealthManager: NSObject, ObservableObject {
+@Observable
+class HealthManager {
     private let logger = Logger(subsystem: Bundle.main.bundleIdentifier ?? "PipBoy", category: "HealthManager")
     private let healthStore = HKHealthStore()
-    @Published var isAuthorized: Bool = false
+    var isAuthorized: Bool = false
 
-    override init() {
-        super.init()
-    }
+    init() {}
 
     func requestAuthorization() async {
         guard HKHealthStore.isHealthDataAvailable() else {
@@ -70,40 +68,41 @@ class HealthManager: NSObject, ObservableObject {
 
     func getRecentHeartRate() async throws -> Double {
         guard isAuthorized else {
-            throw NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "HealthKit not authorized"])
+            throw HealthError.notAuthorized
         }
 
         let heartRateType = HKObjectType.quantityType(forIdentifier: .heartRate)!
         let sortDescriptor = NSSortDescriptor(key: HKSampleSortIdentifierEndDate, ascending: false)
-
         let startDate = Calendar.current.date(byAdding: .hour, value: -1, to: Date())!
         let predicate = HKQuery.predicateForSamples(withStart: startDate, end: Date(), options: .strictStartDate)
 
-        return try await withCheckedThrowingContinuation { continuation in
+        let samples = try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<[HKSample]?, Error>) in
             let query = HKSampleQuery(sampleType: heartRateType, predicate: predicate, limit: 1, sortDescriptors: [sortDescriptor]) { _, samples, error in
                 if let error = error {
-                    self.logger.debug("Heart rate query error: \(error)")
                     continuation.resume(throwing: error)
                     return
                 }
-                if let heartRateSample = samples?.first as? HKQuantitySample {
-                    let heartRate = heartRateSample.quantity.doubleValue(for: HKUnit.count().unitDivided(by: .minute()))
-                    continuation.resume(returning: heartRate)
-                } else {
-                    continuation.resume(throwing: NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "No heart rate data"]))
-                }
+                continuation.resume(returning: samples)
             }
             healthStore.execute(query)
         }
+
+        guard let heartRateSample = samples?.first as? HKQuantitySample else {
+            throw HealthError.noData
+        }
+
+        let heartRate = heartRateSample.quantity.doubleValue(for: HKUnit.count().unitDivided(by: .minute()))
+        logger.debug("Retrieved heart rate: \(heartRate)")
+        return heartRate
     }
 
     func getRecentBloodOxygen() async throws -> Double {
         guard isAuthorized else {
-            throw NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "HealthKit not authorized"])
+            throw HealthError.notAuthorized
         }
 
         guard HKHealthStore.isHealthDataAvailable() else {
-            throw NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Blood oxygen not supported on this device"])
+            throw HealthError.notSupported
         }
 
         let bloodOxygenType = HKQuantityType.quantityType(forIdentifier: .oxygenSaturation)!
@@ -111,23 +110,23 @@ class HealthManager: NSObject, ObservableObject {
         let startDate = Calendar.current.date(byAdding: .hour, value: -1, to: Date())!
         let predicate = HKQuery.predicateForSamples(withStart: startDate, end: Date())
 
-        return try await withCheckedThrowingContinuation { continuation in
+        let samples = try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<[HKSample]?, Error>) in
             let query = HKSampleQuery(sampleType: bloodOxygenType, predicate: predicate, limit: 1, sortDescriptors: [sortDescriptor]) { _, samples, error in
                 if let error = error {
-                    self.logger.debug("Blood oxygen query error: \(error)")
                     continuation.resume(throwing: error)
                     return
                 }
-
-                if let sample = samples?.first as? HKQuantitySample {
-                    let spO2 = sample.quantity.doubleValue(for: HKUnit.percent())
-                    continuation.resume(returning: spO2)
-                } else {
-                    continuation.resume(throwing: NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "No blood oxygen data"]))
-                }
+                continuation.resume(returning: samples)
             }
             healthStore.execute(query)
         }
-    }
 
+        guard let sample = samples?.first as? HKQuantitySample else {
+            throw HealthError.noData
+        }
+
+        let spO2 = sample.quantity.doubleValue(for: HKUnit.percent())
+        logger.debug("Retrieved blood oxygen: \(spO2)")
+        return spO2
+    }
 }

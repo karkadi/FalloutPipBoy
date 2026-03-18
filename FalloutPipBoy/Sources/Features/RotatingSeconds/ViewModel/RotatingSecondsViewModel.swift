@@ -6,19 +6,20 @@
 //
 
 import Foundation
-internal import Combine
+import SwiftUI
 
 @MainActor
-final class RotatingSecondsViewModel: ObservableObject {
-    @Published var now: Date = Date()
-    @Published var preciseSecond: Double = 0
-    @Published var secondFraction: Int = 0
-    @Published var nanosec: Int = 0
-    @Published var minutes: Int = 0
-    @Published var hour: Int = 0
-
+@Observable
+final class RotatingSecondsViewModel {
+    var now: Date = Date()
+    var preciseSecond: Double = 0
+    var secondFraction: Int = 0
+    var nanosec: Int = 0
+    var minutes: Int = 0
+    var hour: Int = 0
+    
     private var timerTask: Task<Void, Never>?
-
+    
     init() {
         timerTask = Task { @MainActor in
             while !Task.isCancelled {
@@ -35,7 +36,8 @@ final class RotatingSecondsViewModel: ObservableObject {
             }
         }
     }
-
+    
+    @MainActor
     deinit {
         timerTask?.cancel()
     }

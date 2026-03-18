@@ -1,0 +1,45 @@
+{
+  "configurations" : [
+    {
+      "id" : "6DF4557C-607A-462E-B194-9F17052704F9",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "codeCoverage" : {
+      "targets" : [
+        {
+          "containerPath" : "container:FalloutPipBoy.xcodeproj",
+          "identifier" : "5BEE70E42E13DBC10020104F",
+          "name" : "FalloutPipBoy Watch App"
+        }
+      ]
+    },
+    "performanceAntipatternCheckerEnabled" : true,
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:FalloutPipBoy.xcodeproj",
+      "identifier" : "5BEE70E42E13DBC10020104F",
+      "name" : "FalloutPipBoy Watch App"
+    }
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:FalloutPipBoy.xcodeproj",
+        "identifier" : "5BEE70FD2E13DBC30020104F",
+        "name" : "FalloutPipBoy Watch AppUITests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:FalloutPipBoy.xcodeproj",
+        "identifier" : "5BEE70F32E13DBC30020104F",
+        "name" : "FalloutPipBoy Watch AppTests"
+      }
+    }
+  ],
+  "version" : 1
+}

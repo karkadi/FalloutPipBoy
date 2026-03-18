@@ -37,6 +37,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		5B83696E2E95C18600113DED /* FalloutPipBoyWatchApp.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = FalloutPipBoyWatchApp.xctestplan; sourceTree = "<group>"; };
 		5B98EFEC2E8A8E24008C7B37 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		5BEE70E52E13DBC10020104F /* FalloutPipBoy Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FalloutPipBoy Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BEE70F42E13DBC30020104F /* FalloutPipBoy Watch AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "FalloutPipBoy Watch AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -118,6 +119,7 @@
 		5BEE70D82E13DBC10020104F = {
 			isa = PBXGroup;
 			children = (
+				5B83696E2E95C18600113DED /* FalloutPipBoyWatchApp.xctestplan */,
 				5BEE70E92E13DBC10020104F /* FalloutPipBoy */,
 				5B00CDBE2E51F0FC00115BAA /* Frameworks */,
 				5BEE70E02E13DBC10020104F /* Products */,

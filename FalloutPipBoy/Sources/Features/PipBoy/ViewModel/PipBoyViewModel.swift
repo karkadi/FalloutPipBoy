@@ -6,76 +6,107 @@
 //
 
 import SwiftUI
-internal import Combine
-import os
+import OSLog
+import Observation
+import WatchKit
 
 @MainActor
-final class PipBoyViewModel: ObservableObject {
+@Observable
+final class PipBoyViewModel {
     private let logger = Logger(subsystem: Bundle.main.bundleIdentifier ?? "pipboy", category: "PipBoyViewModel")
-
-    @Published var currentFrameIndex = 0
-    @Published var currentTime = Date()
-    @Published var heartRate: String = "--"
-    @Published var healthError: String?
-    @Published var bloodOxygen: String = "--%"
-    @Published var batteryLevel: String = "--%"
-    @Published var isAuthorized: Bool = false
-
-    @Published var frameTimer: Publishers.Autoconnect<Timer.TimerPublisher>
-    @Published var clockTimer: Publishers.Autoconnect<Timer.TimerPublisher>
-    @Published var updateTimer: Publishers.Autoconnect<Timer.TimerPublisher>
-
+    
+    var currentFrameIndex = 0
+    var currentTime = Date()
+    var heartRate: String = "--"
+    var healthError: String?
+    var bloodOxygen: String = "--%"
+    var batteryLevel: String = "--%"
+    var isAuthorized: Bool = false
+    
+    // Timer tasks for cancellation
+    private var frameTimerTask: Task<Void, Never>?
+    private var clockTimerTask: Task<Void, Never>?
+    private var updateTimerTask: Task<Void, Never>?
+    
     let frames: [UIImage]
     let frameCount = 21
     let frameWidth: CGFloat = 242
     let frameHeight: CGFloat = 337
     let frameDuration: TimeInterval = 0.1
-
+    
     private let healthManager = HealthManager()
-    private var cancellables = Set<AnyCancellable>()
-
+    
     init() {
-        self.frames = PipBoyViewModel.createSpriteFrames(imageName: "pipBoy",
-                                                          frameCount: frameCount,
-                                                          frameWidth: frameWidth,
-                                                          frameHeight: frameHeight)
-        self.frameTimer = Timer.publish(every: frameDuration, on: .main, in: .common).autoconnect()
-        self.clockTimer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
-        self.updateTimer = Timer.publish(every: 10, on: .main, in: .common).autoconnect()
-        // Sync isAuthorized with HealthManager
-        healthManager.$isAuthorized
-            .receive(on: RunLoop.main)
-            .sink { [weak self] value in
-                self?.isAuthorized = value
+        self.frames = PipBoyViewModel.createSpriteFrames(
+            imageName: "pipBoy",
+            frameCount: frameCount,
+            frameWidth: frameWidth,
+            frameHeight: frameHeight
+        )
+        
+        // Observe health manager authorization changes
+        Task { @MainActor in
+            for await _ in NotificationCenter.default.notifications(named: .healthAuthorizationChanged) {
+                self.isAuthorized = healthManager.isAuthorized
             }
-            .store(in: &cancellables)
+        }
+        
+        startTimers()
     }
-
-    // Format time as HH:mm:ss
-    func timeString(from date: Date) -> String {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "HH:mm:ss"
-        return formatter.string(from: date)
+    
+    @MainActor
+    deinit {
+        cancelTimers()
     }
-
-    func dayOfMonth(from date: Date) -> String {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "ddd"
-        return formatter.string(from: date)
+    
+    private func startTimers() {
+        // Frame timer (0.1 second interval)
+        frameTimerTask = Task { [weak self] in
+            guard let self = self else { return }
+            while !Task.isCancelled {
+                try? await Task.sleep(nanoseconds: UInt64(self.frameDuration * 1_000_000_000))
+                await MainActor.run {
+                    self.currentFrameIndex = (self.currentFrameIndex + 1) % self.frameCount
+                }
+            }
+        }
+        
+        // Clock timer (1 second interval)
+        clockTimerTask = Task { [weak self] in
+            guard let self = self else { return }
+            while !Task.isCancelled {
+                try? await Task.sleep(nanoseconds: 1_000_000_000)
+                await MainActor.run {
+                    self.currentTime = Date()
+                }
+            }
+        }
+        
+        // Update timer (10 second interval)
+        updateTimerTask = Task { [weak self] in
+            guard let self = self else { return }
+            while !Task.isCancelled {
+                try? await Task.sleep(nanoseconds: 10_000_000_000)
+                await self.performUpdate()
+            }
+        }
     }
-
-    func monthOfDate(from date: Date) -> String {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "MM"
-        return formatter.string(from: date)
+    
+    private func cancelTimers() {
+        frameTimerTask?.cancel()
+        clockTimerTask?.cancel()
+        updateTimerTask?.cancel()
+        frameTimerTask = nil
+        clockTimerTask = nil
+        updateTimerTask = nil
     }
-
-    func dayOfWeek(from date: Date) -> String {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "EEE"
-        return formatter.string(from: date)
+    
+    private func performUpdate() async {
+        await fetchHeartRate()
+        await fetchBloodOxygen()
+        updateBatteryLevel()
     }
-
+    
     func fetchHeartRate() async {
         do {
             let rate = try await healthManager.getRecentHeartRate()
@@ -88,7 +119,7 @@ final class PipBoyViewModel: ObservableObject {
             healthError = "Health data unavailable"
         }
     }
-
+    
     func fetchBloodOxygen() async {
         do {
             let spO2 = try await healthManager.getRecentBloodOxygen()
@@ -101,24 +132,25 @@ final class PipBoyViewModel: ObservableObject {
             healthError = "Health data unavailable"
         }
     }
-
+    
     func requestAuthorization() async {
         await healthManager.requestAuthorization()
+        isAuthorized = healthManager.isAuthorized
     }
-
+    
     func updateBatteryLevel() {
         WKInterfaceDevice.current().isBatteryMonitoringEnabled = true
         let level = WKInterfaceDevice.current().batteryLevel
         WKInterfaceDevice.current().isBatteryMonitoringEnabled = false
         if level >= 0 {
-            batteryLevel = String(format: "%03.0f%%", level * 100) // 3 digits with leading zeros
-            logger.debug("Battery level updated: \(self.batteryLevel)") // Debug battery
+            batteryLevel = String(format: "%03.0f%%", level * 100)
+            logger.debug("Battery level updated: \(self.batteryLevel)")
         } else {
             batteryLevel = "--%"
             logger.error("Battery level unavailable")
         }
     }
-
+    
     static func createSpriteFrames(imageName: String,
                                    frameCount: Int,
                                    frameWidth: CGFloat,
@@ -153,5 +185,17 @@ final class PipBoyViewModel: ObservableObject {
         Logger(subsystem: Bundle.main.bundleIdentifier ?? "pipboy", category: "PipBoyViewModel")
             .debug("Extracted \(frames.count) frames")
         return frames.isEmpty ? [spriteSheet] : frames
+    }
+}
+
+// MARK: - Notification Extension
+extension Notification.Name {
+    static let healthAuthorizationChanged = Notification.Name("healthAuthorizationChanged")
+}
+
+// MARK: - HealthManager Extension for Observation
+extension HealthManager {
+    func observeAuthorizationChanges() {
+        NotificationCenter.default.post(name: .healthAuthorizationChanged, object: nil)
     }
 }
